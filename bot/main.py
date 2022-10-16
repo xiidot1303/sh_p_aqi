@@ -38,6 +38,7 @@ def set_title(update, context):
         voice_obj = Voice.objects.get(msg_id=msg_id)
     except:
         update.message.reply_text('voice not found')
+        return
     voice_obj.title = update.message.text
     voice_obj.save()
     update.message.reply_text('title set:\n\n{}'.format(update.message.text))
